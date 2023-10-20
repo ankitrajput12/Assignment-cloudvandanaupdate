@@ -1,0 +1,34 @@
+function reverseWords(sentence) {
+    let reversedSentence = '';
+    let word = '';
+
+    for (let i = 0; i < sentence.length; i++) {
+        const char = sentence[i];
+
+        if (char === ' ' || i === sentence.length - 1) {
+            
+            if (i === sentence.length - 1) {
+                word += char;
+            }
+
+            const reversedWord = reverseString(word);
+            reversedSentence += reversedWord + ' ';
+            word = '';
+        } else {
+            word += char;
+        }
+    }
+
+    return reversedSentence.trim(); }
+
+function reverseString(str) {
+    let reversed = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+
+const inputSentence = "This is a sunny day";
+const reversedResult = reverseWords(inputSentence);
+console.log(reversedResult);

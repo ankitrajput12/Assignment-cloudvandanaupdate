@@ -1,0 +1,25 @@
+import java.util.Random;
+
+public class CustomShuffle {
+    public static void main(String[] args) {
+        int[] myArray = {1, 2, 3, 4, 5, 6, 7};
+
+        customShuffle(myArray);
+
+        for (int num : myArray) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void customShuffle(int[] arr) {
+        Random rand = new Random();
+        int n = arr.length;
+        
+        for (int i = n - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);  
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
